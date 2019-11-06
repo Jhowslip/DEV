@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Produto } from './produto';
+import { tryParse } from 'selenium-webdriver/http';
 
 @Component({
 selector: 'app-produto',
@@ -16,20 +17,33 @@ produtoForm: any;
 allProdutos: Observable<Produto[]>;
 produtoIdUpdate = null;
 message = null;
+displayedColumns = [];
+dataSource: Observable<Produto[]>;
+produtoslist: any[];
+Modal = false;
 
 constructor(private formbulider: FormBuilder, private produtoService: ProdutoService) { }
 
 ngOnInit() {
 this.produtoForm = this.formbulider.group({
+ID_PRODUTO: null,
 DESC_PRODUTO: ['', [Validators.required]],
 EST_PRODUTO: ['', [Validators.required]],
 VAL_PRODUTO: ['', [Validators.required]],
+IMG_PRODUTO: null
 });
 this.loadAllProdutos();
+this.produtoService.getAllProdutos().subscribe(item => {
+ this.produtoslist = item;
+});
 }
+
 loadAllProdutos() {
 this.allProdutos = this.produtoService.getAllProdutos();
 }
+
+
+
 
 onFormSubmit() {
 this.dataSaved = false;

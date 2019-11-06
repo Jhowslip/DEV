@@ -1,18 +1,11 @@
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
+table{
+  height: 100%;
+  width: 70%;
+  top: 12vh;
+  left: 30vh;
+}
+#botao{
+  position: absolute;
+  right: 25vh;
+}
 
-th,td{
-  text-align: center;
-}
-th{
-  background-color:#422956;
-  color: white;
-}
-.tbl1
-{
-  width: 400px;
-  color: black;
-}
-.tbl2
-{
-  width: 400pxx;
-}
