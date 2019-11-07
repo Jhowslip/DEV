@@ -60,6 +60,7 @@ this.dataSaved = true;
 this.message = 'Registro salvo com sucesso';
 this.loadAllProdutos();
 this.produtoIdUpdate = null;
+
 this.produtoForm.reset();
 }
 );
